@@ -1,0 +1,16 @@
+.venv
+venv
+__pycache__/
+*.pyc
+instance
+.env
+migrations
+*.sqlite3
+.DS_Store
+.idea
+.vscode
+*.log
+*.pot
+*.mo
+*.db
+*.sqlite
