@@ -1,9 +1,43 @@
+{% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="imagetoolbar" content="no">
+    <meta name="msthemecompatible" content="no">
+    <meta name="cleartype" content="on">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="google" value="notranslate">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="msapplication-tooltip" content="">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://pestovo.golf/mstile-large.png">
+    <meta name="msapplication-starturl" content="https://csssr.github.io/csssr-project-template/">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-square70x70logo" content="https://pestovo.golf/mstile-small.png">
+    <meta name="msapplication-square150x150logo" content="https://pestovo.golf/mstile-medium.png">
+    <meta name="msapplication-wide310x150logo" content="https://pestovo.golf/mstile-wide.png">
+    <meta name="msapplication-square310x310logo" content="https://pestovo.golf/mstile-large.png">
+
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta name="description" content="">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="«Пестово» | Главная">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://pestovo.golf">
+
     <!-- основной .ico (IE, старые браузеры) -->
     <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
 
@@ -23,10 +57,29 @@
     <!-- Web App manifest (Android / PWA) -->
     <link rel="manifest" href="{% static 'manifest.json' %}">
     <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+
+
+    <link href="{% static 'css/fonts.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+
+    <script src="{% static '2.1/json.js' %}?lang=ru_RU"></script>
+
+    <script src="{% static 'js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'js/vendor/underscore.js' %}"></script>
+    <script src="{% static 'js/vendor/backbone.js' %}"></script>
+    <script src="{% static 'js/vendor/vue.js' %}"></script>
+    <script src="{% static 'js/vendor/vue-backbone.js' %}"></script>
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 
-    <title>{% block title %}{% endblock title %}</title>
 <body>
+    {% block style %} {% endblock style %}
     {% block content %}{% endblock content %}
 </body>
 </html>

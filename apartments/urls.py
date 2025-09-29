@@ -1,5 +1,5 @@
 from django.urls import path
-from views import ApartmentListView
+from .views import ApartmentListView
 
 app_name = 'apartments'
 

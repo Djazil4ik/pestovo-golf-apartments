@@ -1,0 +1,20 @@
+.hidden{
+    display: none;
+}
+
+.text-red {
+    color: indianred;
+}
+
+.modal-enter-active, .modal-leave-active {
+    transition: opacity .5s;
+}
+
+.modal-enter, .modal-leave-to {
+    opacity: 0;
+}
+
+.weather__icon{
+    margin-left: 0;
+    margin-right: 0;
+}

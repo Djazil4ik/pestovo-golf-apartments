@@ -1,9 +1,873 @@
-{% extends 'base.html' %}
+﻿{% extends "base.html" %}
 {% load static %}
+{% load i18n %}
+{% block title %}Pestovo - Гольф-Клуб в Подмосковье{% endblock title %}
 
-{% block title %}Home{% endblock title %}
+<body class="page">
+{% block style %}
+    <style>
+        .partners-page__partners-list {
+            margin-left: -10px;
+            margin-right: -10px;
+            margin-top: 20px;
+            padding-bottom: 0px;
+            justify-content: space-between;
+        }
 
+        .partners-page__partner {
+            width: 16%;
+            min-height: 60px;
+            padding-bottom: 30px;
+            height: 100px;
+        }
+
+        .partner {
+            background-color: #ffffff;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 5px;
+            padding-right: 5px;
+
+        .partner__logo {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        height: 145px;
+        }
+
+        .partner__logo_bosco {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        height: 150px;
+            padding-top: 15px;
+        }
+
+        }
+        .partner__logo-image {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+
+        .partner__logo-image_bosco {
+        padding-top: 25px;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+
+        @media screen and (max-width: 1239px) {
+            .partner__logo-image_bosco {
+            height: 40px;
+            }
+        }
+
+        .button__icon svg {
+            width: 1em;   /* или 16px / 20px */
+            height: 1em;
+            vertical-align: middle;
+            fill: white; /* чтобы иконка наследовала цвет текста */
+        }
+
+        .button__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 6px; /* отступ от текста */
+        }
+
+
+        /* Стили для бургер-иконки */
+        .header__burger-icon svg {
+            width: 21px;
+            height: 24px;
+            fill: white;       /* цвет заливки */
+            stroke: black;     /* цвет линии, если есть stroke */
+            vertical-align: middle;
+        }
+
+        /* Стили для крестика */
+        .header__close {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            stroke: white;
+            display: none; /* скрыт по умолчанию */
+        }
+
+        /* Показываем крестик при открытом меню */
+        .header__menu-toggler.active .header__close {
+            display: block;
+        }
+
+        /* Скрываем бургер при открытом меню */
+        .header__menu-toggler.active .header__burger-icon {
+            display: none;
+        }
+    </style>
+
+{% endblock style %}
 {% block content %}
-<h1>Welcome to the Home Page</h1>
-<p>This is the main content of the home page.</p>
+<header class="header header_theme_ghost">
+    <div class="header__mobile-menu-wrapper">
+    <aside class="mobile-menu">
+        <nav class="mobile-menu__nav">
+            <ul class="mobile-menu__nav-list">
+                <li class="mobile-menu__nav-item">
+                    <a href="club.html" class="mobile-menu__nav-link ">Гольф-Клуб</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                    <a href="academy.html" class="mobile-menu__nav-link ">Академия гольфа</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                    <a href="tournrules.html" class="mobile-menu__nav-link ">Правила турниров</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                    <a href="premium.html" class="mobile-menu__nav-link ">Премиальный сервис</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                    <a href="novice.html" class="mobile-menu__nav-link ">Обучение гольфу</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                    <a href="yachting.html" class="mobile-menu__nav-link ">Академия Парусного Спорта</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                    <a href="partners.html" class="mobile-menu__nav-link ">Партнеры</a>
+                </li>
+                <li class="mobile-menu__nav-item">
+                    <a href="gallery_albums.html" class="mobile-menu__nav-link ">Галерея</a>
+                </li>
+
+                <li class="mobile-menu__nav-item">
+                    <a href="kz.html" class="mobile-menu__nav-link ">Концертный зал</a>
+                </li>
+
+
+                <li class="mobile-menu__nav-item">
+                    <a href="micefav.html" class="mobile-menu__nav-link ">MICE избранное</a>
+                </li>
+
+                <li class="mobile-menu__nav-item">
+                    <a href="micegolf.html" class="mobile-menu__nav-link ">MICE в Гольф-клубе</a>
+                </li>
+
+                <li class="mobile-menu__nav-item">
+                    <a href="yachtclub.html" target="_blank" class="mobile-menu__nav-link ">MICE в Яхт-клубе</a>
+                </li>
+<!--
+                <li class="mobile-menu__nav-item">
+                    <a href="https://pestovo.golf/wellness" target="_blank"
+                       class="mobile-menu__nav-link">Wellness</a>
+                </li>
+-->
+                <li class="mobile-menu__nav-item">
+                    <a href="news.html" class="mobile-menu__nav-link ">Новости</a>
+                </li>
+
+                <li class="mobile-menu__nav-item">
+                    <a href="smionas.html" class="mobile-menu__nav-link ">СМИ о нас</a>
+                </li>
+
+                <li class="mobile-menu__nav-item">
+                    <a href="contacts.html" class="mobile-menu__nav-link ">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+        <footer class="mobile-menu__footer">
+            <a href="tel:+74957392020" class="mobile-menu__phone-link">+7 495 739-20-20</a>
+            <div id="mobile-callback">
+                <button type="button" class="button button_theme_green button_full-width mobile-menu__callback" @click.prevent="callbackModalOpen">
+                    <div class="button__icon">
+                        {% include "images/phone-call-svgrepo-com.svg" %}
+                    </div>
+                    <span>Обратный звонок</span>
+                </button>
+            </div>
+            <div class="mobile-menu__info">
+                <div id="weather-mobile">
+                    <weather></weather>
+                </div>
+                <div class="lang-change">
+                        <span class="lang-change__handlerWrap">
+                            <a href="contacts.html" class="lang-change__handler  lang-change__handler_active ">рус</a>
+                        </span>
+                    <a href="en/contacts.html" class="lang-change__handler ">eng</a>
+                </div>
+            </div>
+        </footer>
+    </aside>
+</div>
+<div class="container">
+    <div class="header__wrapper header__wrapper_main">
+        <div class="header__wrapper-part">
+            <button type="button" class="header__menu-toggler js-header-menu-toggler">
+                {% include "images/icon_burger.svg" %}
+                <svg width="100%" height="100%" class="header__close">
+                    <use xlink:href="/assets/images/icon.svg#icon_exit"></use>
+                </svg>
+            </button>
+            <a href="{% url 'main:home' %}" class="header__logo">
+                {% include "images/pestovo.svg" %}
+            </a>
+            <a href="tel:+74957392020" class="header__phone-link">+7 495 739-20-20</a>
+            <div class="header__callback" id="web-callback">
+                <button type="button" class="button button_theme_green button_size_small" @click.prevent="callbackModalOpen">
+                    <div class="button__icon">
+                        {% include "images/phone-call-svgrepo-com.svg" %}
+                    </div>
+                    <span>Обратный звонок</span>
+                </button>
+            </div>
+        </div>
+        <div id="user-bar">
+                            <a href="#" class="header__profile-link" v-on:click.prevent="signInModalOpen" data-target="sign-in">
+                    <span class="header__profile-name">Личный кабинет</span>
+                    <img src="{% static 'images/userpic.svg' %}" width="29" height="29" alt="" class="header__profile-image" title="">
+                </a>
+                    </div>
+
+    </div>
+    <div class="header__wrapper header__wrapper_secondary">
+        <div class="header__wrapper-part" style="width: fit-content; display: flex; align-items: center;">
+            <div class="header__weather-wrapper" style="left: 0%" id="weather">
+                    <span class="weather__city" style="display: inline-flex; align-items: center; gap: 5px;">
+                        Пестово 
+                        {% if weather == 'Clouds' %}
+                        <img src="{% static 'weather/clouds.png' %}" alt="Погода" class="weather__icon" style="width: 25px;"/>
+                        {% elif weather == 'Clear' %}
+                        <img src="{% static 'weather/clear.png' %}" alt="Погода" class="weather__icon" style="width: 25px;"/>
+                        {% elif weather == 'Rain' %}
+                        <img src="{% static 'weather/drizzle.png' %}" alt="Погода" class="weather__icon" style="width: 25px;"/>
+                        {% elif weather == 'Snow' %}
+                        <img src="{% static 'weather/snow.png' %}" alt="Погода" class="weather__icon" style="width: 25px;"/>
+                        {% elif weather == 'Drizzle' %}
+                        <img src="{% static 'weather/drizzle.png' %}" alt="Погода" class="weather__icon" style="width: 25px;"/>
+                        {% elif weather == 'Thunderstorm' %}
+                        <img src="{% static 'weather/thunderstorm.png' %}" alt="Погода" class="weather__icon" style="width: 25px;"/>
+                        {% else %}
+                        <img src="{% static 'weather/mist.png' %}" alt="Погода" class="weather__icon" style="width: 25px;"/>
+                        {% endif %}
+
+                        {{ temp }}°
+                    </span>
+            </div>
+            <nav class="header__nav" style="margin-left: 10em;">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="{% url 'main:home' %}" class="header__nav-link header__nav-link_active">Заглавная</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="premium.html" class="header__nav-link ">Продажа</a>
+                        <ul class="header__nav-sublist">
+                            <li class="header__nav-subitem">
+                                <a href="novice.html" class="header__nav-sublink">Квартиры</a>
+                            </li>
+                            <li class="header__nav-subitem">
+                                <a href="yachting.html" class="header__nav-sublink">Машино-места</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item">
+                          <a href="novice.html" class="header__nav-link ">Аренда</a>
+                            <ul class="header__nav-sublist">
+                            <li class="header__nav-subitem">
+                                <a href="novice.html" class="header__nav-sublink">Квартиры</a>
+                            </li>
+                            <li class="header__nav-subitem">
+                                <a href="yachting.html" class="header__nav-sublink">Машино-места</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="partners.html" class="header__nav-link ">Инфраструктура</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="partners.html" class="header__nav-link ">Партнеры</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="contacts.html" class="header__nav-link ">Контакты</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="header__lang-wrapper" style="margin-left: 5em;">
+            <div class="lang-change">
+					<span class="lang-change__handlerWrap">
+                        <a href="contacts.html" class="lang-change__handler  lang-change__handler_active ">рус</a>
+					</span>
+                <a href="en/contacts.html" class="lang-change__handler ">eng</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block script %}
+<script type="text/template" id="weather-template">
+    <section class="weather" v-if="loaded">
+        <span class="weather__city">Пестово</span>
+        <img :src="icon" width="40" height="40" alt=""
+             class="weather__icon"
+             title=""
+        />
+        <span class="weather__value">{{ temperature }}</span>
+    </section>
+</script></header>
+{% endblock script %}
+    <main class="main main_no-paddings">
+        <div class="main-page">
+                                                <section class="head-section">
+    <div class="container">
+        <div class="head-section__inner">
+            <h4 class="head-section__small-title">гольф &amp; яхт клуб</h4>
+
+            <h1 class="head-section__title-pestovo" style="margin-bottom: 15px;">Pestovo</h1>
+
+            <h4 class="head-section__small-title">апартаменты</h4>
+
+        </div>
+    </div>
+</section>
+                                    
+
+<div class="partners-section" style="height: 145px;">
+    <div class="container" style="margin-top: 10px;height: 110px;">
+        <p class="title title_size_0" style="text-align:center;">Партнеры</p>
+        <ul class="partners-page__partners-list">
+            <li class="partners-page__partner">
+                <a href="https://gum.ru/" target="_blank" class="partner">
+			<span class="partner__logo" style="height: 60px;">
+			    <img class="partner__logo-image" src="{% static 'files/partners/15/1/151-image.png' %}" alt="ГУМ" role="presentation">
+			</span>
+                </a>
+            </li>
+
+
+            <li class="partners-page__partner">
+                <a href="https://www.bosco.ru/" target="_blank" class="partner">
+			<span class="partner__logo_bosco" style="height: 45px;">
+			    <img src="{% static 'files/partners/33/33-image.png' %}" alt="Bosco di Ciliegi" width="50%" height="" class="partner__logo-image_bosco" role="presentation">
+			</span>
+                </a>
+            </li>
+
+            <li class="partners-page__partner">
+                <a href="https://tencon.ru/" target="_blank" class="partner">
+			<span class="partner__logo" style="height: 60px;">
+			    <img src="{% static 'files/partners/2/2-image.png' %}" alt="Tenzor" width="150" height="" class="partner__logo-image" role="presentation">
+			</span>
+                </a>
+            </li>
+            <li class="partners-page__partner">
+                <a href="https://tenzor-sailing-club.com/" target="_blank" class="partner">
+			<span class="partner__logo" style="height: 60px;">
+			    <img src="{% static 'files/partners/26/26-image.png' %}" alt="Tenzor Sailing CLub" width="150" height="" class="partner__logo-image" role="presentation">
+			</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<section class="lifestyle-section">
+    <div class="container">
+        <div class="lifestyle-section__inner">
+            <div style="background-image: url({% static 'files/text_blocks/4/4-image.png' %})" class="lifestyle-section__image"></div>
+            <div class="lifestyle-section__text-block">
+                <h2 class="title title_size_2 title_drop_tablet lifestyle-section__title"> Всё ради гольфа</h2>
+                <p class="lifestyle-section__text">Гольф-клуб &laquo;Пестово&raquo; построен в&nbsp;соответствии с&nbsp;международными стандартами и&nbsp;не&nbsp;имеет аналогов в&nbsp;Москве и&nbsp;МО. Чемпионское поле подготовлено для игры на&nbsp;самом высоком уровне&nbsp;&mdash; здесь могут проводиться престижные турниры серии &laquo;мейджор&raquo;. Профессиональные тренеры в&nbsp;Академии гольфа смогут обучить новичка и&nbsp;дать ценные советы уже опытным игрокам, а&nbsp;детская Академия разовьет потенциал у&nbsp;совсем юных гольфистов.</p>
+                <p class="lifestyle-section__text">Членство в&nbsp;закрытом частном клубе &laquo;Пестово&raquo;&nbsp;&mdash; пожизненная привилегия, открывающая многогранные возможности спортивной и&nbsp;культурной жизни современного гольф-сообщества.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="products-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="title title_size_2" >Наши Апартаменты</h2>
+                <p class="lifestyle-section__text" >Откройте для себя лучшие предложения</p>
+            </div>
+            
+            <!-- Django Template Code -->
+            {% if apartments %}
+                <div class="products-grid">
+                    {% for apartment in apartments %}
+                        <div class="product-card">
+                            <div class="product-image">
+                                {% if apartment.preview_image %}
+                                    <img src="{{ apartment.preview_image.url }}" alt="{{ apartment.name }}">
+                                {% else %}
+                                    Изображение товара
+                                {% endif %}
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">{{ apartment.name }}</h3>
+                                <p class="product-description">{{ apartment.description|truncatewords:20 }}</p>
+                                {% if apartment.for_sale %}
+                                <div class="product-price">₽{{ apartment.price_for_sale }}</div>
+                                {% elif apartment.for_rent %}
+                                <div class="product-price">₽{{ apartment.price_per_night }} за ночь</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="no-products">
+                    <p>Товары не найдены</p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+<section class="lifestyle-section" style="background-image:none;">
+    <div class="container">
+        <p>
+            <video controls="" controlslist="noplaybackrate nodownload" onclick="this.paused?this.play():this.pause();" poster="{% static 'files/videos_images/mice.png' %}" preload="none" width="100%"><source src="{% static 'files/videos_images/micehdaac.mp4' %}" type="video/mp4"> Your browser does not support the video tag.</video>
+        </p>
+    </div>
+</section>
+
+
+
+                                    <section class="place-section">
+    <div class="container">
+        <div class="place-section__inner">
+            <div class="place-section__text-block">
+                <h2 class="title title_size_2">Вдали от суеты</h2>
+                <p class="place-section__text">Гольф-клуб «Пестово» находится в живописном месте на берегу Пестовского водохранилища. Здесь не слышно городского шума — только свежий воздух, пейзажи и уютные загородные дома. Природа и развитая инфраструктура превращают «Пестово» в тихий уголок для семейного отдыха.</p>
+                                <div class="place-section__button-wrapper">
+                    <a href="club.html" class="button button_full-width">Познакомиться с клубом</a>
+                </div>
+                            </div>
+            <div class="place-section__slider">
+                <section class="slider-square swiper-container">
+                    <div class="slider-square__wrapper swiper-wrapper">
+                                                    <div class="slider-square__slide swiper-slide no-swiping">
+                                <img src="{% static 'files/images_galleries/3/171.jpg' %}" alt="" class="slider-square__img" title="">
+                            </div>
+                                                    <div class="slider-square__slide swiper-slide no-swiping">
+                                <img src="{% static 'files/images_galleries/3/170.jpg' %}" alt="" class="slider-square__img" title="">
+                            </div>
+                                            </div>
+                    <div class="slider-square__controls">
+                        <div class="slider-square__button slider-square__button_prev swiper-button-prev"></div>
+                        <div class="slider-square__pagination swiper-pagination"></div>
+                        <div class="slider-square__button slider-square__button_next swiper-button-next"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+                                    <div class="main-page__map-wrapper">
+    <section class="interactive-map">
+        <div id="map" class="interactive-map__iframe"></div>
+        <div class="container interactive-map__inner">
+            <div class="interactive-map__text-wrapper">
+                <h4 class="title title_size_4">Московская область</h4>
+
+<p><span class="interactive-map__text">Город Мытищи,<br>
+д.&nbsp;Румянцево ул.&nbsp;Никольская, владение 1, строение 1</span></p>
+            </div>
+        </div>
+    </section>
+</div>
+                                    <section class="offers-section">
+    <div class="container">
+        <h2 class="title title_size_2 offers-section__title">C заботой о вашем отдыхе</h2>
+        <p class="offers-section__text">В загородном комплексе есть все необходимое для комфортного отдыха всей семьи. Это не только чемпионское поле для гольфа, но и Клубный дом, ресторан, фитнес-центр, яхт-клуб. Высококвалифицированный персонал выводит жизнь в загородном клубе на новый уровень.</p>
+        <div class="offers-section__signature">
+            <svg width="100%" height="100%"><use xlink:href="/assets/images/icon.svg#icon_signature"></use></svg>
+        </div>
+    </div>
+</section>
+                                    <div class="main-page__feature-item main-page__feature-item_top">
+    <div class="main-page__feature-card">
+        <div class="feature-card">
+            <span class="feature-card__category">Досуг</span>
+            <h2 class="title title_size_2 feature-card__title">Клубный дом</h2>
+        </div>
+    </div>
+    <div class="main-page__feature-card">
+        <div class="feature-card feature-card_img">
+            <img src="{% static 'files/text_blocks/8/8-image.jpg' %}" width="555" height="325" alt="Досуг" class="feature-card__image" title="">
+        </div>
+    </div>
+</div>
+                                    <div class="main-page__feature-item main-page__feature-item_reverse">
+    <div class="main-page__feature-card">
+        <div class="feature-card">
+            <span class="feature-card__category">Гастрономия</span>
+            <h2 class="title title_size_2 feature-card__title">Ресторан &laquo;Пестово&raquo;</h2>
+        </div>
+    </div>
+    <div class="main-page__feature-card">
+        <div class="feature-card feature-card_img">
+            <img src="{% static 'files/text_blocks/16/16-image.jpg' %}" width="555" height="325" alt="Гастрономия" class="feature-card__image" title="">
+        </div>
+    </div>
+</div>
+                                    <div class="main-page__feature-item ">
+    <div class="main-page__feature-card">
+        <div class="feature-card">
+            <span class="feature-card__category">Недвижимость</span>
+            <h2 class="title title_size_2 feature-card__title">Апартаменты</h2>
+        </div>
+    </div>
+    <div class="main-page__feature-card">
+        <div class="feature-card feature-card_img">
+            <img src="{% static 'files/text_blocks/19/19-image.jpg' %}" width="555" height="325" alt="Недвижимость" class="feature-card__image" title="">
+        </div>
+    </div>
+</div>
+                                    <div class="main-page__feature-item main-page__feature-item_reverse">
+    <div class="main-page__feature-card">
+        <div class="feature-card">
+            <span class="feature-card__category">Яхтенный спорт</span>
+            <h2 class="title title_size_2 feature-card__title">Яхт-клуб «Пестово»</h2>
+        </div>
+    </div>
+    <div class="main-page__feature-card">
+        <div class="feature-card feature-card_img">
+            <img src="{% static 'files/text_blocks/18/18-image.jpg' %}" width="555" height="325" alt="Яхтенный спорт" class="feature-card__image" title="">
+        </div>
+    </div>
+</div>
+                                    <div class="main-page__event-slider">
+        <section class="event-slider">
+            <div class="container">
+                <div class="event-slider__inner-wrapper">
+                    <div class="event-slider__title">
+                        <h2 class="title title_size_2 title_align_center event-slider__title"> Вот, что у нас происходит</h2>
+                    </div>
+                    <div class="event-slider__container swiper-container">
+                        <div class="event-slider__wrapper swiper-wrapper">
+                                                            <div class="event-slider__slide swiper-slide no-swiping">
+                                    <a href="news/135.html" class="event-card event-card_slider">
+                                                                                    <img src="{% static 'files/news/13/5/135-image-thumb.jpg' %}" width="360" height="257" alt="Слайд 1" class="event-card__image" title="">
+                                        
+                                        <span class="event-card__date">1 неделю назад</span>
+                                        <h4 class="title title_size_4 event-card__title">Кубок Семьи: спорт, который объединяет поколения</h4>
+                                        <p class="event-card__text">&nbsp</p>
+                                    </a>
+                                </div>
+                                                            <div class="event-slider__slide swiper-slide no-swiping">
+                                    <a href="news/134.html" class="event-card event-card_slider">
+                                                                                    <img src="{% static 'files/news/13/4/134-image-thumb.jpg' %}" width="360" height="257" alt="Слайд 1" class="event-card__image" title="">
+                                        
+                                        <span class="event-card__date">1 месяц назад</span>
+                                        <h4 class="title title_size_4 event-card__title">Звёзды сезона: как проходил Чемпионат Клуба</h4>
+                                        <p class="event-card__text">&nbsp</p>
+                                    </a>
+                                </div>
+                                                            <div class="event-slider__slide swiper-slide no-swiping">
+                                    <a href="news/133.html" class="event-card event-card_slider">
+                                                                                    <img src="{% static 'files/news/13/3/133-image-thumb.jpg' %}" width="360" height="257" alt="Слайд 1" class="event-card__image" title="">
+                                        
+                                        <span class="event-card__date">3 месяца назад</span>
+                                        <h4 class="title title_size_4 event-card__title">Гольф с характером: выдержка и мастерство на Кубке Президента!</h4>
+                                        <p class="event-card__text">&nbsp</p>
+                                    </a>
+                                </div>
+                                                    </div>
+                        <div class="event-slider__pagination swiper-pagination"></div>
+                    </div>
+                                            <a href="news.html" class="button">Все новости</a>
+                                    </div>
+            </div>
+        </section>
+    </div>
+
+                                    <section class="offers-section">
+    <div class="container">
+        <h2 class="title title_size_2 offers-section__title">Подарочный сертификат гольф-клуба</h2>
+        <p class="offers-section__text"></p>
+        <div class="gift-section">
+                          <a href="http://pestovopartners.ru/gift">
+                <img src="{% static 'files/images_galleries/223/2167.jpg' %}" alt="" class="" title="" width="80%">
+                </a>
+                  </div>
+    </div>
+</section>
+
+                                    </div>
+    </main>
+
+
+<script type="text/x-template" id="modal-template">
+    <transition name="modal">
+        <div class="modal-wrapper">
+            <div class="modal modal_type_md">
+                <slot name="close">
+                    <button type="button" class="modal__close-button js-close-modal" @click="close">
+                        <svg width="100%" height="100%">
+                            <use xlink:href="/assets/images/icon.svg#icon_modal-close"></use>
+                        </svg>
+                    </button>
+                </slot>
+                <slot name="back"></slot>
+                <slot name="body"></slot>
+            </div>
+        </div>
+    </transition>
+</script>
+
+<script type="text/x-template" id="lg-modal-template">
+    <transition name="modal">
+        <div class="modal-wrapper">
+            <div class="modal modal_type_lg">
+                <slot name="close">
+                    <button type="button" class="modal__close-button js-close-modal" @click="close">
+                        <svg width="100%" height="100%">
+                            <use xlink:href="/assets/images/icon.svg#icon_modal-close"></use>
+                        </svg>
+                    </button>
+                </slot>
+                <slot name="back"></slot>
+                <slot name="body"></slot>
+            </div>
+        </div>
+    </transition>
+</script>
+
+<div id="callback">
+    <modal v-if="showModal" @close="showModal = false">
+        <form slot="body" class="modal-form" @submit.prevent="callback" method="POST" action="https://pestovo.golf/callback_requests">
+            <h4 class="title title_size_4 modal-form__title">Обратный звонок</h4>
+            <h5 class="title modal-form__title" v-if="hasAlert">
+                <i>
+                    <small>
+                        {{ alert.message }}
+                    </small>
+                </i>
+            </h5>
+
+            <div class="modal-form__input-container">
+                <div class="input-box" v-bind:class="{ 'input-box_error': nameHasError }">
+                                            <input ref="name" data-value="" type="text" v-model="name" placeholder="Имя" class="input-box__input">
+                                            <span class="input-box__warning" v-if="nameHasError">{{ nameError }}</span>
+                </div>
+                <div class="input-box" v-bind:class="{ 'input-box_error': phoneHasError }">
+                                            <input ref="phone" data-value="" type="tel" v-model="phone" placeholder="Телефон" value="" class="input-box__input">
+                    
+                        <span class="input-box__warning" v-if="phoneHasError">{{ phoneError }}</span>
+                </div>
+
+                <div class="input-box" v-bind:class="{ 'input-box_error': confirmHasError }">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox-1" v-model="confirm" class="checkbox__input">
+                        <label for="checkbox-1" class="checkbox__label">
+							<span class="checkbox__checked">
+								<svg width="100%" height="100%"><use xlink:href="/assets/images/icon.svg#icon_checkbox"></use></svg>
+							</span>Даю согласие на обработку персональных данных в соответствии с <a href="rules.html" class="agreement__link" target="_blank">Правилами</a></label>
+                    </div>
+
+                    <span class="input-box__warning" v-if="confirmHasError">{{ confirmError }}</span>
+                </div>
+
+            </div>
+
+	    <div class="g-recaptcha" ref="recaptcha" data-sitekey="6LeAvcAjAAAAAAydVnWTDwU7G7wYvmP-Dw6Vd-tW"></div>
+
+            <div class="modal-form__button-wrap">
+                <button type="submit" class="button button_full-width">
+                    <span>Отправить</span>
+                </button>
+
+            </div>
+        </form>
+    </modal>
+</div>
+
+<div id="callback-sent">
+    <modal v-if="showModal" @close="showModal = false" ref="modal">
+        <div class="modal-form" slot="body">
+            <h4 class="title title_size_4 modal-form__title modal-form__title_margin_small">Ваша заявка отправлена</h4>
+            <span class="modal-form__description">Наши менеджеры свяжутся с вами в ближайшее время</span>
+            <div class="modal-form__button-wrap">
+                <button type="button" class="button button_full-width" @click="close">
+                    <span class="button__text">Закрыть</span>
+                </button>
+            </div>
+        </div>
+    </modal>
+</div>
+
+
+
+
+    <div id="sign-in">
+        <modal v-if="showModal" @close="showModal = false">
+            <form slot="body" class="modal-form" @submit.prevent="signIn" method="POST" action="https://pestovo.golf/auth/user/login">
+                <h4 class="title title_size_4 modal-form__title">Войти</h4>
+                <h5 class="title modal-form__title" v-if="hasAlert">
+                    <i>
+                        <small>
+                            {{ alert.message }}
+                        </small>
+                    </i>
+                </h5>
+                <div class="modal-form__input-container">
+                    <div class="input-box" v-bind:class="{ 'input-box_error': loginHasError }">
+                        <input type="text" placeholder="Электронная почта или ID" v-model="login" class="input-box__input">
+                        <span class="input-box__warning" v-if="loginHasError">{{ loginError }}</span>
+                    </div>
+                    <div class="input-box" v-bind:class="{ 'input-box_error': passwordHasError }">
+                        <input type="password" placeholder="Пароль" v-model="password" class="input-box__input">
+                        <span class="input-box__warning" v-if="passwordHasError">{{ passwordError }}</span>
+                    </div>
+                </div>
+                <div class="modal-form__button-wrap">
+                    <button type="submit" class="button button_full-width">
+                        <span>Войти</span>
+                    </button>
+                </div>
+                <button type="button" class="link" @click="openRecovery">Восстановить пароль</button>
+            </form>
+        </modal>
+    </div>
+
+    <div id="recovery">
+        <modal v-if="showModal" @close="showModal = false">
+            <button slot="back" type="button" class="modal__text-button" @click="openSignIn">
+        <span class="modal__text-button-icon">
+            <svg width="100%" height="100%"><use xlink:href="/assets/images/icon.svg#icon_arrowLeft"></use></svg>
+        </span>
+                <span class="modal__text-button-inner">Назад</span>
+            </button>
+
+            <form slot="body" class="modal-form" @submit.prevent="recovery" method="post" action="https://pestovo.golf/auth/password/send-token">
+                <h4 class="title title_size_4 modal-form__title">Восстановление</h4>
+                <h5 class="title modal-form__title" v-if="hasAlert">
+                    <i>
+                        <small>
+                            {{ alert.message }}
+                        </small>
+                    </i>
+                </h5>
+                <div class="modal-form__input-container">
+                    <div class="input-box" v-bind:class="{ 'input-box_error': emailHasError }">
+                        <input type="text" placeholder="Электронная почта" v-model="email" class="input-box__input">
+                        <span class="input-box__warning" v-if="emailHasError">{{ emailError }}</span>
+                    </div>
+                </div>
+                <span class="modal-form__description">Укажите Вашу электронную почту и мы пришлём Вам ссылку на изменение пароля</span>
+                <div class="modal-form__button-wrap">
+                    <button type="submit" class="button button_full-width">
+                        <span>Отправить</span>
+                    </button>
+                </div>
+            </form>
+        </modal>
+    </div>
+
+    <div id="recovery-link-sent">
+        <modal v-if="showModal" @close="showModal = false" ref="modal">
+            <div slot="body" class="modal-form">
+                <h4 class="title title_size_4 modal-form__title modal-form__title_margin_small">Ваш запрос отправлен</h4>
+                <span class="modal-form__description">Ваш запрос на восстановление пароля принят. Ссылка для восстановления направлена на Вашу электронную почту
+                    : <br> «{{ email }}»</span>
+                <div class="modal-form__button-wrap">
+                    <button type="button" class="button button_full-width" @click="close">
+                        <span>Закрыть</span>
+                    </button>
+                </div>
+            </div>
+        </modal>
+    </div>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__wrapper">
+            <span class="footer__copyright">Copyright © 1996-2025 Pestovo.</span>
+
+            <a href="paymethod.html" class="footer__link">Способы оплаты</a>
+
+            <a href="return.html" class="footer__link">Возврат товара</a>
+
+            <a href="agreement.html" class="footer__link">Пользовательское соглашение</a>
+
+            <a href="rules.html" class="footer__link">Правила обработки данных</a>
+
+            <div class="footer__controls">
+                                <ul class="footer__social">
+                    <li class="footer__socialItem">
+                        <a href="https://t.me/pestovoLIVE/" class="footer__socialLink">
+                            <svg width="100%" height="100%">
+                                <use xlink:href="{% static 'assets/images/icon.svg' %}#icon_telegram"></use>
+                            </svg>
+                        </a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+        <span class="footer__copyright footer__copyright_tablet">Copyright © 1996-2018 Pestovo.</span>
+    </div>
+</footer>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   var z = null;m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(49170580, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="{% static 'watch/49170580' %}" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<div class="preloader js-preloader preloader_loaded">
+    <img src="{% static 'images/preloader.svg' %}" class="preloader__image" alt="" role="presentation">
+</div>
+<script src="{% static 'assets/scripts/app.min.js' %}"></script>
+<script src="{% static 'js/vendor/input-mask/jquery.inputmask.js'%}"></script>
+<script src="{% static 'js/vendor/moment.js' %}"></script>
+
+<script src="{% static 'js/app/common.js' %}"></script>
+<script src="{% static 'js/app/header.js' %}"></script>
+
+            <script src="{% static 'js/app/auth.js' %}"></script>
+    <script src="{% static 'js/app/callback.js' %}"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(49170580, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="{% static 'watch/49170580' %}" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 {% endblock content %}
+</body>
+
+</html>
