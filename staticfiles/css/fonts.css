@@ -1,0 +1,31 @@
+/* @import url("https://fast.fonts.net/lt/1.css?apiType=css&c=21d38f0c-d6a2-4574-b5fc-fae245d218a9&fontids=1491474,1491478,1491482"); */
+@font-face {
+    font-family: 'AvenirNext';
+    src: url("../fonts/1491474/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot");
+    src: url("../fonts/1491474/069faa0e-9913-48c4-9ef7-89a4bc080b65.eot") format("eot"), url("../fonts/1491474/7db1f672-3a8f-4d19-9c49-7f61aed450b5.woff2") format("woff2"), url("../fonts/1491474/4ab86b35-c0c2-42b5-98ad-4b6eba66b197.woff") format("woff"), url("../fonts/1491474/276b3566-1c3b-4bc1-8915-15314f091f29.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNext';
+    src: url("../fonts/1491478/c6970a14-8b0f-4629-9072-71c7e123908f.eot");
+    src: url("../fonts/1491478/c6970a14-8b0f-4629-9072-71c7e123908f.eot") format("eot"), url("../fonts/1491478/b0b84e4d-2164-45c7-a674-1662f19f3ba6.woff2") format("woff2"), url("../fonts/1491478/e91d1bbf-3fea-45e2-b003-a22b12ce6e5f.woff") format("woff"), url("../fonts/1491478/ead8b64b-1abd-4d5b-a642-a21dfe2f463b.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNext';
+    src: url("../fonts/1491482/fbf4298d-ef75-419c-b615-47f209a48ed2.eot");
+    src: url("../fonts/1491482/fbf4298d-ef75-419c-b615-47f209a48ed2.eot") format("eot"), url("../fonts/1491482/40d36b4a-60c6-460a-bf43-4c948c23563e.woff2") format("woff2"), url("../fonts/1491482/45b78f45-e639-4836-8612-e0892e120f14.woff") format("woff"), url("../fonts/1491482/cbc021cc-b96f-4c82-ba0d-59cb0b7449c0.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CormorantGaramond';
+    src: url("../fonts/CormorantGaramond/CormorantGaramond-SemiBoldItalic.woff2") format('woff2'), url("../fonts/CormorantGaramond/CormorantGaramond-SemiBoldItalic.ttf") format('truetype'), url("../fonts/CormorantGaramond/CormorantGaramond-SemiBoldItalic.woff") format('woff');
+    font-weight: 700;
+    font-style: italic;
+}

@@ -201,10 +201,15 @@
                     <weather></weather>
                 </div>
                 <div class="lang-change">
+                    {% get_current_language as LANGUAGE_CODE %}
                         <span class="lang-change__handlerWrap">
-                            <a href="contacts.html" class="lang-change__handler  lang-change__handler_active ">рус</a>
+                            {% language 'ru' %}
+                            <a href="{% url 'main:home' %}" class="lang-change__handler {% if LANGUAGE_CODE == 'ru' %}lang-change__handler_active{% endif %}">рус</a>
+                            {% endlanguage %}
                         </span>
-                    <a href="en/contacts.html" class="lang-change__handler ">eng</a>
+                        {% language 'en' %}
+                        <a href="{% url 'main:home' %}" class="lang-change__handler {% if LANGUAGE_CODE == 'en' %}lang-change__handler_active{% endif %}">eng</a>
+                        {% endlanguage %}
                 </div>
             </div>
         </footer>

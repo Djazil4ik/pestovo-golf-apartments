@@ -119,6 +119,10 @@ LANGUAGES = [
     ('ru', 'Russian'),
 ]
 
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',  # путь к папке с переводами
+]
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -133,6 +137,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
